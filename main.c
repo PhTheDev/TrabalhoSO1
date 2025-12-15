@@ -6,7 +6,7 @@
 #include <linux/device.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Pedro");
+MODULE_AUTHOR("Pedro Henrique e Fabio");
 MODULE_DESCRIPTION("Lista ordenada - driver automatico");
 MODULE_VERSION("1.0");
 
@@ -116,7 +116,8 @@ static int __init lista_init(void)
     if (major < 0)
         return major;
 
-    lista_class = class_create(THIS_MODULE, CLASS_NAME);
+    // Apara kernel 6 do linux pra evitar o erro chato na hora do make
+    lista_class = class_create(CLASS_NAME);
     if (IS_ERR(lista_class)) {
         unregister_chrdev(major, DEVICE_NAME);
         return PTR_ERR(lista_class);
