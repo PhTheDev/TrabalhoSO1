@@ -7,7 +7,7 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Pedro Henrique e Fabio");
-MODULE_DESCRIPTION("Lista ordenada - driver automatico");
+MODULE_DESCRIPTION("Lista ordenada");
 MODULE_VERSION("1.0");
 
 #define DEVICE_NAME "lista_random"
@@ -22,7 +22,7 @@ static int lista[MAX_ELEM];
 static int count = 0;
 
 /*
- * Ordenação simples (Bubble sort)
+ * Bubble sort
  */
 static void ordenar_lista(void)
 {
@@ -37,7 +37,7 @@ static void ordenar_lista(void)
 }
 
 /*
- * WRITE — recebe número e coloca na lista
+ * WRITE — recebe numero e coloca na lista
  */
 static ssize_t dev_write(struct file *file, const char __user *buf,
                          size_t len, loff_t *offset)
@@ -136,7 +136,7 @@ static int __init lista_init(void)
 }
 
 /*
- * EXIT — remove driver e destrói /dev
+ * EXIT — remove driver e destroi /dev
  */
 static void __exit lista_exit(void)
 {
@@ -148,4 +148,5 @@ static void __exit lista_exit(void)
 }
 
 module_init(lista_init);
+
 module_exit(lista_exit);
